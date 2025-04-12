@@ -1,25 +1,22 @@
-const gerarIdUnico = require("../utils/gerarIdUnico");
-const { usuarios } = require("../mock/dados.json");
+const bcrypt = require("bcrypt");
+
 class Usuario {
-  constructor(nome, imagem, email, papel) {
-    this.id = gerarIdUnico(usuarios);
+  constructor(id, nome, email, cpf, senhaHash) {
+    this.id = id;
     this.nome = nome;
-    this.imagem = imagem;
     this.email = email;
-    this.papel = papel;
-    this.inscricoes = [];
+    this.cpf = cpf;
+    this.senha = senhaHash;
   }
 
-  pegarPapel() {
-    return this.papel;
+  static async criar(nome, email, cpf, senha) {
+    const hash = await bcrypt.hash(senha, 10);
+    const id = Math.random().toString(36).substring(2, 10);
+    return new Usuario(id, nome, email, cpf, hash);
   }
 
-  listarInscricoes() {
-    return this.inscricoes;
-  }
-
-  inscreverSeNoCanal(idCanal) {
-    this.inscricoes.push(parseInt(idCanal));
+  async compararSenha(senha) {
+    return await bcrypt.compare(senha, this.senha);
   }
 }
 

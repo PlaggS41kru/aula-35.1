@@ -1,23 +1,13 @@
 const express = require("express");
-const servidor = express();
+const rotas = require("./routes");
+const server = express();
 
-const rotas = require("./utils/rotas.json")
+server.use(express.json());
 
-const videosRoutes = require("./routes/videosRoutes");
-const usuariosRoutes = require("./routes/usuariosRoutes");
-const canaisRoutes = require("./routes/canaisRoutes");
+server.use(rotas);
 
-// Middleware para permitir requisições JSON
-servidor.use(express.json());
+server.use((_req, res, _next) =>
+  res.status(404).json({ erro: "Rota não existe" })
+);
 
-// Usando as rotas
-servidor.use("/videos", videosRoutes);
-servidor.use("/canais", canaisRoutes);
-servidor.use("/usuarios", usuariosRoutes);
-
-servidor.get("/", (req, res) => res.json(rotas));
-
-// Inicializando o servidor na porta 3000
-servidor.listen(3000, () => {
-  console.log("Servidor rodando na porta 3000");
-});
+server.listen(3000, () => console.log("Servidor está rodando!"));
