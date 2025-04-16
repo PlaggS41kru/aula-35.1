@@ -1,0 +1,31 @@
+📋 Quiz: Encapsulamento em JavaScript
+
+1. O que é encapsulamento?
+a) Tornar funções públicas em uma classe
+b) Criar muitas instâncias de uma classe
+c) Esconder detalhes internos de um objeto e expor só o necessário
+d) Importar módulos de outros arquivos
+--------------------------------------------------------
+2. Qual dessas opções representa um campo privado usando ES2022+?
+a) this.saldo
+b) this._saldo
+c) this.#saldo
+d) this.$saldo
+--------------------------------------------------------
+3. Qual alternativa define corretamente um getter?
+a) get nome { return this.nome }
+b) get nome() { return this._nome; }
+c) function getNome() { return this.nome; }
+d) getter nome() { return nome; }
+--------------------------------------------------------
+4. O que acontece ao tentar acessar diretamente um campo #privado de uma classe?
+a) Retorna undefined
+b) Funciona normalmente
+c) Lança um erro
+d) Retorna null
+--------------------------------------------------------
+5. Para proteger um campo em JavaScript sem usar #, o que é uma boa prática?
+a) Usar Object.freeze()
+b) Prefixar com _ e usar getters/setters
+c) Declarar com let
+d) Esconder dentro do HTML
