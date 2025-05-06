@@ -1,9 +1,15 @@
 const { Usuario } = require("../models/Usuario");
-const repositorioDeUsuario = require("../repositories/repositorioDeUsuario");
+const RepositorioDeUsuario = require("../repositories/repositorioDeUsuario");
 
-exports.buscarTodos = async () => await repositorioDeUsuario.buscarTodos();
+class ServicoDeUsuario {
+  buscarTodos() {
+    return RepositorioDeUsuario.buscarTodos();
+  }
 
-exports.criar = async (nome, email, cpf, senha) => {
-  const usuario = await Usuario.criar(nome, email, cpf, senha);
-  return await repositorioDeUsuario.criar(usuario);
-};
+  cadastrar(nome, email, cpf, senha) {
+    const usuario = new Usuario(nome, email, cpf, senha);
+    return RepositorioDeUsuario.criar(usuario);
+  }
+}
+
+module.exports = new ServicoDeUsuario();

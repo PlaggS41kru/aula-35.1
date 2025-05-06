@@ -3,6 +3,6 @@ const controladorDeUsuario = require("../controllers/controladorDeUsuario");
 const rotasDeUsuario = express.Router();
 
 rotasDeUsuario.get("/todos", controladorDeUsuario.pegarTodos);
-rotasDeUsuario.post("/criar", controladorDeUsuario.criar);
+rotasDeUsuario.post("/cadastrar", controladorDeUsuario.cadastrar);
 
 module.exports = rotasDeUsuario;

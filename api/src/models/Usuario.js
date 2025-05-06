@@ -1,18 +1,41 @@
 const bcrypt = require("bcrypt");
+const usuarios = [
+  {
+    id: "7qnptt5s",
+    nome: "Ada Lovelace",
+    email: "ada@lovelace.com",
+    cpf: "34455611223",
+    senha: "hpLovelace321"
+  },
+  {
+    id: "5vny7uxn",
+    nome: "Alan Turing",
+    email: "alan@turing.com",
+    cpf: "11223344556",
+    senha: "testeDeTuring123"
+  }
+];
 
 class Usuario {
-  constructor(id, nome, email, cpf, senhaHash) {
-    this.id = id;
+  constructor(nome, email, cpf, senhaHash) {
+    this.id = Math.random().toString(36).substring(2, 10);
     this.nome = nome;
     this.email = email;
     this.cpf = cpf;
     this.senha = senhaHash;
   }
 
-  static async criar(nome, email, cpf, senha) {
-    const hash = await bcrypt.hash(senha, 10);
-    const id = Math.random().toString(36).substring(2, 10);
-    return new Usuario(id, nome, email, cpf, hash);
+  static buscarTodos() {
+    return usuarios;
+  }
+
+  salvar() {
+    usuarios.push(this);
+    return this;
+  }
+
+  static async criptografar(senha) {
+    return await bcrypt.hash(senha, 10);
   }
 
   async compararSenha(senha) {
