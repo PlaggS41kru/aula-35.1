@@ -1,0 +1,45 @@
+
+🎯 Quiz: Segurança com Tokens JWT
+
+1. O que pode acontecer se você não definir um tempo de expiração (`exp`) para um token JWT?
+
+a) O token expira automaticamente em 24h  
+b) O token nunca expira e pode ser reutilizado indefinidamente  
+c) O token expira após o logout do usuário  
+d) O token se autoinvalida depois de 1 hora
+
+---
+
+2. Qual dessas práticas representa um risco de segurança ao armazenar tokens no frontend?
+
+a) Guardar o token em um cookie `HttpOnly`  
+b) Guardar o token em memória volátil  
+c) Guardar o token no `localStorage`  
+d) Usar `secure` em cookies em produção
+
+---
+
+3. O que um atacante pode fazer se conseguir executar um script malicioso dentro do seu frontend (XSS)?
+
+a) Invadir o banco de dados do backend  
+b) Interceptar os headers HTTP da aplicação  
+c) Roubar o JWT do `localStorage` ou `sessionStorage`  
+d) Modificar os arquivos do servidor
+
+---
+
+4. O que a propriedade `alg` do JWT representa e por que ela pode ser perigosa?
+
+a) Define o algoritmo de login usado pelo usuário  
+b) Define o algoritmo de hash da senha do usuário  
+c) Define o algoritmo usado para assinar o token, podendo ser manipulado se não validado corretamente  
+d) Não tem impacto na segurança, é só metadado
+
+---
+
+5. Qual é a função do `jwt.verify()` no backend?
+
+a) Criptografar os dados do token  
+b) Verificar se o token está no `localStorage`  
+c) Decodificar o token e validar sua assinatura  
+d) Verificar se o usuário está logado na aplicação
