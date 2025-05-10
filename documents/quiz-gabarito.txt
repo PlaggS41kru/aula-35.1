@@ -1,0 +1,52 @@
+NÃO OLHE, ANTES DE RESPONDER
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+🎯 Gabarito - Quiz: Segurança com Tokens JWT
+
+1. b) O token nunca expira e pode ser reutilizado indefinidamente
+
+2. c) Guardar o token no `localStorage`
+
+3. c) Roubar o JWT do `localStorage` ou `sessionStorage`
+
+4. c) Define o algoritmo usado para assinar o token, podendo ser manipulado se não validado corretamente
+
+5. c) Decodificar o token e validar sua assinatura
