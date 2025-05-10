@@ -1,3 +1,4 @@
+const { HttpError } = require("../errors/httpError");
 const servicoDeUsuario = require("../services/servicoDeUsuario");
 
 class ControladorDeUsuario {
@@ -25,6 +26,25 @@ class ControladorDeUsuario {
     const usuario = servicoDeUsuario.cadastrar(nome, email, cpf, senha);
 
     res.status(201).json(usuario);
+  }
+
+  conectar(req, res){
+    try {
+      // Pega o req, e formata: email e senha
+      const {email, senha} = req.body;
+      // Chamar a função service
+      const resposta = servicoDeUsuario.conectar(email, senha);
+
+      // Se não conseguiu logar, devolve um erro
+      if (resposta instanceof HttpError){
+        return res.status(resposta.status).json({ messagem: resposta.message });
+      }
+
+      // Se não devolve '200'
+      res.status(200).json(resposta)
+    }  catch{
+      return res.status(500).json({ error: resposta.error});
+    }
   }
 }
 
